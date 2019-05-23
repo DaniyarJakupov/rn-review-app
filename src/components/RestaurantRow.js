@@ -10,8 +10,11 @@ class RestaurantRow extends Component {
   };
 
   onInfoPress = () => {
-    this.setState({ showInfo: !this.state.showInfo });
+    this.props.navigation.navigate("Info", {
+      place: this.props.place
+    });
   };
+
   render() {
     const { place, index } = this.props;
 
