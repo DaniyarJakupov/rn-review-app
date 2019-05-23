@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import Stars from "./Stars";
 
 class RestaurantRow extends Component {
   state = {
@@ -15,8 +18,8 @@ class RestaurantRow extends Component {
     return (
       <View style={{ backgroundColor: index % 2 == 0 ? "#ffffff" : "#f3f3f3" }} key={place.name}>
         <View style={[styles.row]}>
-          <View style={styles.edges}>
-            <Text>{index + 1}</Text>
+          <View style={styles.stars}>
+            <Stars rating={place.rating} />
           </View>
 
           <View style={styles.nameAddress}>
@@ -49,6 +52,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 5,
+    minWidth: 50
+  },
+  stars: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "flex-start",
     padding: 5,
     minWidth: 50
   },
